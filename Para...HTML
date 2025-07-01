@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Feliz Cumpleaños Mejor Amiga 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000000;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+      text-align: center;
+      overflow-y: auto;  /* permite scroll vertical */
+      overflow-x: hidden; /* evita scroll horizontal */
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 40px;
+      color: #ff69b4;
+      animation: pulse 2s infinite;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 400px;
+      animation: fadeIn 1.5s ease-in-out;
+      color: #ffe6f7;
+    }
+
+    .button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s;
+    }
+
+    .button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .hidden-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffb6d5;
+      animation: appear 1s forwards;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ff69b4;
+      animation: tornado 6s linear infinite;
+    }
+
+    @keyframes tornado {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+      25% {
+        transform: translateY(75vh) translateX(30px) rotate(90deg);
+      }
+      50% {
+        transform: translateY(50vh) translateX(-30px) rotate(180deg);
+      }
+      75% {
+        transform: translateY(25vh) translateX(20px) rotate(270deg);
+      }
+      100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎀 ¡Feliz Cumple Izamaaaarr! 🎀</h1>
+  <p>Que la pases súper bien hoy, que Dios te bendiga un montón y que todo te salga genial, porque eres una persona maravillosa y alegre. ¡Espero que sigas cumpliendo muchos años más llenos de felicidad! ¡Gracias por existir y permitirme ser tu amigo! 💖</p>
+
+  <div class="card">
+    <p>Haz clic en el botón para ver tu mensaje especial:</p>
+    <button class="button" onclick="mostrarMensaje()">🎁 Ver mensaje 🎁</button>
+    <p id="mensaje" class="hidden-message">
+      ✨ ¡En este día tan especial celebro la hermosa persona que eres. Gracias por ser mi amiga incondicional, mi apoyo y mi alegría en cada momento "aunque a veces te enojas conmigo jaja". pero que este nuevo año te traiga muchísima felicidad, sueños cumplidos y todo el amor que mereces. Eres un regalo en mi vida, y estoy muy agradecido por tenerte siempre cerca. Que este nuevo año esté lleno de sonrisas y abrazos sinceros.
+      ¡Te deseo un día lleno de felicidad! Y sabes que te quiero mushisisisimooo 🎂💐
+    </p>
+  </div>
+
+  <!-- Tornado de corazones -->
+  <div class="hearts" id="hearts"></div>
+
+  <footer>Lo hice con cariño de mi para tu :3</footer>
+
+  <script>
+    function mostrarMensaje() {
+      const mensaje = document.getElementById("mensaje");
+      mensaje.style.display = "block";
+    }
+
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 10 + 16) + "px";
+      heart.style.animationDuration = (Math.random() * 2 + 4) + "s";
+      document.getElementById("hearts").appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(crearCorazon, 200);
+  </script>
+
+</body>
+</html>
